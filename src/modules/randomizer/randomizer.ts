@@ -1,12 +1,17 @@
-class Randomizer {
-  public getRndUpper = (): string => this.getRndChar().toUpperCase()
-  public getRndLower = (): string => this.getRndChar().toLowerCase()
+import { rndRange } from "@/utils/rnd/rnd"
 
-  public rnd = (range: number) => Math.floor(Math.random() * range)
-  public rndElem = <T = any>(arr: T[]): T => arr[this.rnd(arr.length)]
-
-  private getRndChar = () => String.fromCharCode(this.rnd(26) + 65)
+export class Randomizer {
+  public number = (min: number, max: number): number => rndRange(min, max)
+  public numberStr = (min: number, max: number): string => this.number(min, max).toString()
+  public rndElem = <T = any>(arr: T[]): T => {
+    if (!arr.length) {
+      throw new Error('rndElem method missed array')
+    }
+    
+    return arr[this.number(0, arr.length - 1)]
+  }
 }
+
 const randomizer = new Randomizer()
 
 export {

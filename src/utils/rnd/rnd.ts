@@ -1,4 +1,4 @@
-const rndNumber = (min: number, max: number) => {
+const rndRange = (min: number, max: number) => {
   if (max <= min) {
     throw new Error('rndNumber func wrong parameters - min is greater than max')
   }
@@ -8,5 +8,5 @@ const rndNumber = (min: number, max: number) => {
 }
 
 export {
-  rndNumber,
+  rndRange,
 }

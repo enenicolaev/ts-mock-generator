@@ -1,14 +1,14 @@
-import { rndNumber } from './rnd'
+import { rndRange } from './rnd'
 
-describe('Test rndNumber', () => {
+describe('Test rndRange', () => {
 
-  test('test rndNumber', () => {
-    const random = rndNumber(1, 3)
+  test('test rndRange', () => {
+    const random = rndRange(1, 3)
     expect(random).toBeGreaterThan(0)
     expect(random).toBeLessThan(4)
   });
   
   test('test rndNumber wrong params', () => {
-    expect(() => rndNumber(10, 1)).toThrow(Error)
+    expect(() => rndRange(10, 1)).toThrow(Error)
   });
 })
